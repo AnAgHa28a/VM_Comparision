@@ -15,7 +15,7 @@ public class VMPerfService {
 
     // CPU-Intensive: Simple loop (computes fast, minimal memory)
     public long computeCPUIntensiveFactorial(int n) {
-        meterRegistry.gauge("vmperf.api.call.start", 1); // Passing constant value when api call starts
+        
         meterRegistry.counter("vmperf.cpu.factorial.calls").increment(); // Custom counter
 
         long result = 1;
@@ -47,7 +47,7 @@ public class VMPerfService {
         }
 
         meterRegistry.gauge("vmperf.memory.bytes.allocated", totalBytes); // Report allocated memory
-        meterRegistry.gauge("vmperf.api.call.end", 1); // Passing constant value when api call ends
+        
         return memoryList.size();
     }
 }
